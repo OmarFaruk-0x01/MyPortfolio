@@ -1,0 +1,19 @@
+.clients {
+  &-content {
+    .slider {
+    }
+  }
+
+  .slider-item {
+    @include display-center;
+    margin: 10px 10px;
+
+    img {
+      pointer-events: none;
+      &::selection {
+        background-color: transparent;
+      }
+      width: 35%;
+    }
+  }
+}

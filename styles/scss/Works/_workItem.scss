@@ -1,0 +1,307 @@
+@import "../config";
+
+.workPage {
+  width: 100%;
+  min-height: 100vh;
+  background-color: $s-color;
+  padding: 3rem;
+
+  @include media(470px) {
+    padding: 1.5rem;
+  }
+  @include media(600px) {
+    padding: 1rem;
+  }
+}
+
+.imagePreview {
+  width: 60%;
+  height: 300px;
+  margin: auto;
+  background-color: $s-2-color;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  overflow: hidden;
+
+  @include media(700px) {
+    width: 80%;
+  }
+  @include media(550px) {
+    width: 100%;
+  }
+
+  &--imageCon {
+    width: 100%;
+    height: 100%;
+
+    video {
+      object-fit: contain;
+      width: 100%;
+      // height: 300px;
+    }
+
+    img {
+      object-fit: scale-down;
+      width: 100%;
+      height: 300px;
+    }
+  }
+}
+
+.imageSliderCon {
+  height: 100%;
+}
+
+.workTitleHeader {
+  padding-bottom: 3rem;
+  @include display-center($jc: flex-start);
+
+  h2 {
+    position: relative;
+    font-size: 1.5rem;
+    color: $small-color;
+    top: -2px;
+
+    @include media(470px) {
+      font-size: 1.1rem;
+    }
+  }
+
+  .backAction {
+    @include display-center($jc: flex-start);
+    margin-right: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: transparent;
+    color: $big-color;
+    font-size: 1.5rem;
+    transition: all 0.5ms linear;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    -webkit-transition: all 0.5ms linear;
+    -moz-transition: all 0.5ms linear;
+    -ms-transition: all 0.5ms linear;
+    -o-transition: all 0.5ms linear;
+
+    &:hover {
+      background-color: $s-3-color;
+    }
+
+    &:active {
+      background-color: $s-2-color;
+    }
+
+    -webkit-transition: all 0.5ms linear;
+    -moz-transition: all 0.5ms linear;
+    -ms-transition: all 0.5ms linear;
+    -o-transition: all 0.5ms linear;
+  }
+}
+
+.workSection {
+  padding-top: 30px;
+
+  &--title {
+    color: $big-color;
+  }
+
+  &--content {
+    padding-top: 10px;
+    color: $small-color;
+    font-size: 1rem;
+    @include media(600px) {
+      font-size: 0.8rem;
+      p {
+        font-size: 0.8rem;
+        width: 100%;
+        overflow-wrap: break-word;
+      }
+    }
+
+    ol {
+      padding-left: 25px;
+    }
+  }
+
+  .workSection--content--btn {
+    @include display-center($jc: flex-start);
+    margin: 10px 0;
+    @include media(430px) {
+      flex-direction: column;
+      row-gap: 1rem;
+      justify-content: none;
+      align-items: unset;
+    }
+  }
+}
+
+.workDownBtn {
+  background-color: $p-color;
+}
+
+.workVisitBtn {
+  background-color: rgb(9, 192, 40);
+}
+
+.workWebBtn {
+  background-color: rgb(7, 182, 182);
+}
+
+.workDownBtn,
+.workVisitBtn,
+.workWebBtn {
+  @include display-center;
+
+  margin: 0 4px;
+  padding: 7px 10px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  color: $big-color;
+
+  span {
+    @include display-center;
+    margin: 0 3px;
+  }
+}
+
+.imageModalWrapper {
+  width: 100%;
+  height: 100%;
+  background-color: $s-color;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    margin: 20px auto;
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  & ~ .backArrow {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: $s-3-color;
+    width: 40px;
+    height: 40px;
+    @include display-center;
+    color: white;
+    font-size: x-large;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+
+    &:hover {
+      background-color: $s-2-color;
+    }
+  }
+}
+
+.techList {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  &--item {
+    @include display-center(center, flex-start);
+    padding: 10px 12px;
+    margin: 5px 7px;
+    background-color: $s-3-color;
+    cursor: pointer;
+    &-img {
+      @include display-center;
+      margin: 0px 5px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50px;
+      -webkit-border-radius: 50px;
+      -moz-border-radius: 50px;
+      -ms-border-radius: 50px;
+      -o-border-radius: 50px;
+      overflow: hidden;
+      background-color: $s-2-color;
+      img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+      transition: all 0.5ms linear;
+      -webkit-transition: all 0.5ms linear;
+      -moz-transition: all 0.5ms linear;
+      -ms-transition: all 0.5ms linear;
+      -o-transition: all 0.5ms linear;
+      @include media(500px) {
+        width: 30px;
+        height: 30px;
+      }
+    }
+    &-icon {
+      @include display-center;
+      font-size: 20px;
+      margin: 0px 5px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50px;
+      -webkit-border-radius: 50px;
+      -moz-border-radius: 50px;
+      -ms-border-radius: 50px;
+      -o-border-radius: 50px;
+      overflow: hidden;
+      background-color: $s-2-color;
+      transition: all 0.5ms linear;
+      -webkit-transition: all 0.5ms linear;
+      -moz-transition: all 0.5ms linear;
+      -ms-transition: all 0.5ms linear;
+      -o-transition: all 0.5ms linear;
+      @include media(500px) {
+        font-size: 0.9rem;
+        width: 30px;
+        height: 30px;
+      }
+    }
+    &-title {
+      position: relative;
+      font-size: 1rem;
+      top: -1px;
+      font-weight: 400;
+      @include media(500px) {
+        font-size: 0.9rem;
+      }
+    }
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    &:hover {
+      background-color: $s-2-color;
+      & > .techList--item-icon,
+      & > .techList--item-img {
+        background-color: $s-3-color;
+      }
+    }
+    transition: all 0.3s linear;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -ms-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+  }
+
+  @include media(600px) {
+    justify-content: center;
+  }
+  @include media(460px) {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}

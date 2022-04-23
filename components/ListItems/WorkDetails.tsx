@@ -45,6 +45,8 @@ const WorkDetails: React.FC<{ workData }> = ({ workData }) => {
       <div className="workPage">
         <Head>
           <title>{workData.title} | Omar Faruk</title>
+          {/* <meta property="og:description" content={workData.content} /> */}
+          <meta property="og:image" content={workData.featuredImage.node.mediaItemUrl} />
         </Head>
         <WorkTitleHeader headerText={workData.title} />
         <ImagePreview
@@ -84,7 +86,7 @@ const WorkDetails: React.FC<{ workData }> = ({ workData }) => {
               {workData.technologies.nodes.map((tech) => (
                 <li key={tech.name}>
                   <p
-                    data-for={!!tech.description ? "Tech" :''}
+                    data-for={!!tech.description ? "Tech" : ""}
                     data-tip={`<div style="width:300px;overflow-wrap:break-word">${tech.description}</div>`}
                     className="techList--item"
                   >

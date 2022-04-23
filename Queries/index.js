@@ -77,6 +77,7 @@ query Work($ID: ID!) {
           image {
             ...Img
           }
+          techtype
         }
       }
     }

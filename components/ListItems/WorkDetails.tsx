@@ -7,9 +7,10 @@ import Head from "next/head";
 import ReactTooltip from "react-tooltip";
 
 const WorkDetails: React.FC<{ workData }> = ({ workData }) => {
-  console.log(
-    
-  );
+  
+  const frontEndTechs = workData?.technologies.nodes.filter(node => node.techAttr.techtype == 'front')
+  const backEndTechs = workData?.technologies.nodes.filter(node => node.techAttr.techtype === 'back')
+  
   
   function renderProdBtns() {
     if (workData.workAttr.releaseType == "web") {
@@ -46,7 +47,10 @@ const WorkDetails: React.FC<{ workData }> = ({ workData }) => {
         <Head>
           <title>{workData.title} | Omar Faruk</title>
           {/* <meta property="og:description" content={workData.content} /> */}
-          <meta property="og:image" content={workData.featuredImage.node.mediaItemUrl} />
+          <meta
+            property="og:image"
+            content={workData.featuredImage.node.mediaItemUrl}
+          />
         </Head>
         <WorkTitleHeader headerText={workData.title} />
         <ImagePreview
@@ -82,26 +86,60 @@ const WorkDetails: React.FC<{ workData }> = ({ workData }) => {
         <div className="workSection">
           <h2 className="workSection--title">Technologies</h2>
           <div className="workSection--content">
-            <ul className="techList">
-              {workData.technologies.nodes.map((tech) => (
-                <li key={tech.name}>
-                  <p
-                    data-for={!!tech.description ? "Tech" : ""}
-                    data-tip={`<div style="width:300px;overflow-wrap:break-word">${tech.description}</div>`}
-                    className="techList--item"
-                  >
-                    <span className="techList--item-img">
-                      {tech.techAttr.image ? (
-                        <img src={tech.techAttr.image.mediaItemUrl} />
-                      ) : (
-                        <span>{tech.name[0]}</span>
-                      )}
-                    </span>
-                    <span className="techList--item-title">{tech.name}</span>
-                  </p>
-                </li>
-              ))}
-            </ul>
+            {frontEndTechs.length ? (
+              <div style={{ marginTop: 10 }}>
+                <h4>Frontend</h4>
+                <ul className="techList">
+                  {frontEndTechs.map((tech) => (
+                    <li key={tech.name}>
+                      <p
+                        data-for={!!tech.description ? "Tech" : ""}
+                        data-tip={`<div style="width:300px;overflow-wrap:break-word">${tech.description}</div>`}
+                        className="techList--item"
+                      >
+                        <span className="techList--item-img">
+                          {tech.techAttr.image ? (
+                            <img src={tech.techAttr.image.mediaItemUrl} />
+                          ) : (
+                            <span>{tech.name[0]}</span>
+                          )}
+                        </span>
+                        <span className="techList--item-title">
+                          {tech.name}
+                        </span>
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+            {backEndTechs.length ? (
+              <div style={{ marginTop: 5 }}>
+                <h3>Backend</h3>
+                <ul className="techList">
+                  {backEndTechs.map((tech) => (
+                    <li key={tech.name}>
+                      <p
+                        data-for={!!tech.description ? "Tech" : ""}
+                        data-tip={`<div style="width:300px;overflow-wrap:break-word">${tech.description}</div>`}
+                        className="techList--item"
+                      >
+                        <span className="techList--item-img">
+                          {tech.techAttr.image ? (
+                            <img src={tech.techAttr.image.mediaItemUrl} />
+                          ) : (
+                            <span>{tech.name[0]}</span>
+                          )}
+                        </span>
+                        <span className="techList--item-title">
+                          {tech.name}
+                        </span>
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
           </div>
         </div>
 

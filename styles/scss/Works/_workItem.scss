@@ -108,15 +108,30 @@
 
   &--title {
     color: $big-color;
+    position: relative;
+    padding-left: 5px;
+    &::before{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background-color: $p-color;
+      z-index: 0;
+    }
+    z-index: 10;
   }
 
   &--content {
     padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
     color: $small-color;
     font-size: 1rem;
     @include media(600px) {
       font-size: 0.8rem;
-      p {
+      & > p {
         font-size: 0.8rem;
         width: 100%;
         overflow-wrap: break-word;
@@ -298,7 +313,7 @@
   }
 
   @include media(600px) {
-    justify-content: center;
+    // justify-content: center;
   }
   @include media(460px) {
     display: grid;

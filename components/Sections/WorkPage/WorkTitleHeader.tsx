@@ -5,7 +5,7 @@ import { BiLeftArrowAlt } from "react-icons/bi";
 const WorkTitleHeader: React.FC<{ headerText: string }> = ({ headerText }) => {
   const router = useRouter();
   function goBack() {
-    router.back();
+   router.replace('/works')
   }
   return (
     <div className="workTitleHeader">

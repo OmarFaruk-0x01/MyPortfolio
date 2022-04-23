@@ -20,6 +20,6 @@
     "**/*.tsx",
     "components/Image/ImagePrespective.jsx",
     "components/Texts/AnimatedText.jsx"
-  ],
+, "components/ListItems/ModalImage.jsx"  ],
   "exclude": ["node_modules"]
 }

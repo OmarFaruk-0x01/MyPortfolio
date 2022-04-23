@@ -57,13 +57,6 @@
 import React, { Component } from "react";
 import Lightbox from "react-image-lightbox";
 
-const image_src = [
-  "//placekitten.com/1500/500",
-  "//placekitten.com/4000/3000",
-  "//placekitten.com/800/1200",
-  "//placekitten.com/1500/1500",
-];
-
 export class ModalImage extends Component {
   constructor(props) {
     super(props);

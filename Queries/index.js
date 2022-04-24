@@ -90,3 +90,43 @@ export const CustomFieldsGQL =(str) => gql`
     ${str}
   }
 `
+
+export const AllCertificates = gql`
+query Certificates {
+	certificates{
+    nodes{
+      featuredImage{
+        node{
+          mediaItemUrl
+        }
+      }
+      certificate{
+        courseTitle
+        courseId
+        certificatesLink
+        instituteName
+        courseTime{
+          endDate
+        }
+      }
+    }
+  }
+}
+`
+
+export const AllTechnologies = gql`
+query Technologies{
+  technologies(where:{hideEmpty:true},first: 20){
+    nodes{
+      name
+      count
+      techAttr{
+        image{
+          mediaItemUrl
+        }
+        techtype
+      }
+    }
+  }
+}
+`

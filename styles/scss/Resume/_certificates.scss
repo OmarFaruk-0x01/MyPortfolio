@@ -11,10 +11,19 @@
       display: flex;
       border: 2px solid $s-2-color;
       border-radius: 15px;
-
+      span{
+        display: flex
+        ;
+        flex-direction: column;
+        padding: 10px;
+      }
       &:hover {
         transform: translateY(-5px);
-      }
+        -webkit-transform: translateY(-5px);
+        -moz-transform: translateY(-5px);
+        -ms-transform: translateY(-5px);
+        -o-transform: translateY(-5px);
+}
 
       &_img {
         flex: 1;
@@ -30,7 +39,7 @@
       }
       &_dics {
         flex: 3;
-        padding: 20px;
+        padding: 25px;
 
         .title {
           color: $big-color;
@@ -49,6 +58,16 @@
           font-weight: 400;
           line-height: 0;
         }
+      }
+      @include media(400px){
+        flex-direction: column;
+        &_img{
+          border-radius: 10px;
+          -webkit-border-radius: 10px;
+          -moz-border-radius: 10px;
+          -ms-border-radius: 10px;
+          -o-border-radius: 10px;
+}
       }
     }
   }

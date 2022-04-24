@@ -1,64 +1,38 @@
-const SkillSection = () => {
+const SkillSection = ({ backEndTech=[] , frontEndTech=[]}) => {
   return (
     <section className="skills">
       <div className="skills-list">
         <div className="skills-list__left">
-          <div className="section-header">
-            <span>Design Skills</span>
+          <div className="section-header skills-header">
+            <span>Frontend Skills</span>
+            <span>
+              <sub>Number Of Projects</sub>
+            </span>
           </div>
-          <div className="skill">
-            <h2 className="skill-name">UI/UX Design</h2>
-            <div className="skill-progressbar" data-rate="95">
-              <div className="progress"></div>
+          {frontEndTech.sort((a,b) => (a.count - b.count)).reverse().slice(0,5).map((front) => (
+            <div key={front.name} className="skill">
+              <div className="skill-img" style={{backgroundImage: `url(${front.techAttr.image.mediaItemUrl})`}}>
+              </div>
+              <h2 className="skill-name">{front.name}</h2>
+              <p className="skill-count">{front.count}</p>
             </div>
-          </div>
-          <div className="skill">
-            <h2 className="skill-name">Print Design</h2>
-            <div className="skill-progressbar" data-rate="75">
-              <div className="progress"></div>
-            </div>
-          </div>
-          <div className="skill">
-            <h2 className="skill-name">Graphic Design</h2>
-            <div className="skill-progressbar" data-rate="85">
-              <div className="progress"></div>
-            </div>
-          </div>
-          <div className="skill">
-            <h2 className="skill-name">Logo Design</h2>
-            <div className="skill-progressbar" data-rate="90">
-              <div className="progress"></div>
-            </div>
-          </div>
+          ))}
         </div>
-        <div className="skills-list__right">
-          <div className="section-header">
-            <span>Coding Skills</span>
+        <div className="skills-list__right ">
+          <div className="section-header skills-header">
+            <span>Backend Skills</span>
+             <span>
+              <sub>Number Of Projects</sub>
+            </span>
           </div>
-          <div className="skill">
-            <h2 className="skill-name">HTML / CSS</h2>
-            <div className="skill-progressbar" data-rate="100">
-              <div className="progress"></div>
+          {backEndTech.sort((a,b) => (a.count - b.count)).reverse().slice(0,5).map((back) => (
+            <div key={back.name} className="skill">
+             <div className="skill-img" style={{backgroundImage: `url(${back.techAttr.image?.mediaItemUrl})`}}>
+              </div>
+              <h2 className="skill-name">{back.name}</h2>
+              <p className="skill-count">{back.count}</p>
             </div>
-          </div>
-          <div className="skill">
-            <h2 className="skill-name">PHP</h2>
-            <div className="skill-progressbar" data-rate="90">
-              <div className="progress"></div>
-            </div>
-          </div>
-          <div className="skill">
-            <h2 className="skill-name">JavaScript</h2>
-            <div className="skill-progressbar" data-rate="90">
-              <div className="progress"></div>
-            </div>
-          </div>
-          <div className="skill">
-            <h2 className="skill-name">Smarty / Twig</h2>
-            <div className="skill-progressbar" data-rate="85">
-              <div className="progress"></div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

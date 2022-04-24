@@ -34,9 +34,6 @@ export async function getServerSideProps(ctx) {
     
   const frontEndTech = technologies.nodes.filter(tech => tech.techAttr.techtype == 'front')
   const backEndTech = technologies.nodes.filter(tech => tech.techAttr.techtype == 'back')
-
-  console.log('front: ', frontEndTech);
-  console.log('back: ', backEndTech);
   return {
     props: {
       certificates: certificates.nodes.map((cert) => ({

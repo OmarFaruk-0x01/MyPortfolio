@@ -17,15 +17,37 @@
         background-color: $s-2-color;
         border-radius: 50%;
         border: 2px solid $s-2-color;
-        box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.8);
+        //box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.8);
+        animation: ripple 1.5s linear infinite;
+        -webkit-animation: ripple2 1.5s linear infinite;
+        &:hover{
+          .img{
+            filter: unset !important;
+            -webkit-filter: unset !important;
+          }
+          border: 2px solid $p-color;
+          background-color: $p-color;
+          animation: ripple 1.5s linear infinite;
+          -webkit-animation: ripple 1.5s linear infinite;
+}
         .img {
           width: 310px;
           height: 310px;
           border-radius: 50%;
           background-position: center center;
           background-size: cover;
-        }
-      }
+          transition: all 200ms linear;
+          -webkit-transition: all 200ms linear;
+          -moz-transition: all 200ms linear;
+          -ms-transition: all 200ms linear;
+          -o-transition: all 200ms linear;
+}
+        transition: all 200ms linear;
+        -webkit-transition: all 500ms linear;
+        -moz-transition: all 500ms linear;
+        -ms-transition: all 500ms linear;
+        -o-transition: all 500ms linear;
+}
     }
 
     &--right {
@@ -60,19 +82,41 @@
         color: $big-color;
         @include transition;
 
-        &:hover{
-            background-color: $small-color;
-            color: $s-color;
+        &:hover {
+          background-color: $small-color;
+          color: $s-color;
         }
         &.btn-left {
-            border-color: $p-color;
+          border-color: $p-color;
 
-            &:hover{
-                background-color: $p-color;
-                color: $big-color;
-            }
+          &:hover {
+            background-color: $p-color;
+            color: $big-color;
+          }
         }
       }
     }
   }
 }
+
+@keyframes ripple {
+  0% {
+    box-shadow: 0 0 0 0 rgba($p-color, 0.3), 0 0 0 1px rgba($p-color, 0.3),
+      0 0 0 3px rgba($p-color, 0.3), 0 0 0 5px rgba($p-color, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba($p-color, 0.3), 0 0 0 4px rgba($p-color, 0.3),
+      0 0 0 20px rgba($p-color, 0), 0 0 0 30px rgba($p-color, 0);
+  }
+}
+@keyframes ripple2 {
+  0% {
+    box-shadow: 0 0 0 0 rgba(rgb(126, 125, 125), 0.3), 0 0 0 1px rgba(rgb(126, 125, 125), 0.3),
+      0 0 0 3px rgba(rgb(126, 125, 125), 0.3), 0 0 0 5px rgba(rgb(126, 125, 125), 0.3);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(rgb(126, 125, 125), 0.3), 0 0 0 4px rgba(rgb(126, 125, 125), 0.3),
+      0 0 0 20px rgba(rgb(126, 125, 125), 0), 0 0 0 30px rgba(rgb(126, 125, 125), 0);
+  }
+}
+

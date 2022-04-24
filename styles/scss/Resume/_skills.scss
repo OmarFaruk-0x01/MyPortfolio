@@ -68,3 +68,28 @@
     }
   }
 }
+
+.skill-showBtn{
+    width: 50%;
+    font-size: 1rem;
+    cursor: pointer;
+    color: $big-color;
+    background: $s-2-color;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px 25%;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    
+    &:hover{
+        background-color: $p-color;
+        
+    }
+    transition: all .15s linear;
+    -webkit-transition: all .15s linear;
+    -moz-transition: all .15s linear;
+    -ms-transition: all .15s linear;
+    -o-transition: all .15s linear;
+}

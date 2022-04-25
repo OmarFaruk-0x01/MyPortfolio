@@ -3,7 +3,7 @@ import { MediaCore, showCase } from "./fragments";
 
 export const AllCetagories = gql`
   query AllCetagories {
-    cetagories {
+    cetagories(where:{hideEmpty: true}) {
       nodes {
         name
       }

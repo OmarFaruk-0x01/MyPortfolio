@@ -56,6 +56,9 @@
         font-weight: 400;
         color: $unfocused-color;
         margin-bottom: 10px;
+        @include media(500px){
+          text-align: center;
+        }
       }
       h2 {
         font-size: 3.2rem;

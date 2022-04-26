@@ -14,7 +14,7 @@ export const AllCetagories = gql`
 export const AllWorks = gql`
   ${MediaCore}
   query Works {
-    works {
+    works(first: 30) {
       nodes {
         id
         title

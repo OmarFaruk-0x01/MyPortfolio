@@ -10,10 +10,30 @@ const listItem = {
     scale: 1,
   },
 };
-const WorkList = ({ data, activeValue }) => {
-
-  
+const WorkList = ({ data=[], activeValue }) => {
   if (data) {
+
+    
+  function renderWorks(){
+    let filteredWork;
+    if (activeValue === 'All'){
+      filteredWork = [...data]
+    }
+    else{
+      filteredWork = data.filter(item => (item.cetagories.nodes.includes(activeValue)))
+    }
+    
+    return filteredWork.map((item,i) => (
+      <WorkItem
+        index={i}
+        key={item.id}
+        activeValue={activeValue}
+        item={item}
+        />
+    ))
+  }
+
+
     return (
       <AnimatePresence>
         <motion.div
@@ -25,16 +45,7 @@ const WorkList = ({ data, activeValue }) => {
           opacity: 1,
         }}
       >
-        {data.filter(item => (activeValue == 'All' || false) || item.cetagories.nodes[0].name == activeValue).map((item, i) => {
-          return (
-            <WorkItem
-              index={i}
-              key={item.id}
-              activeValue={activeValue}
-              item={item}
-            />
-          );
-        })}
+        {renderWorks()}
       </motion.div>
       </AnimatePresence>
     );

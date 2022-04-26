@@ -11,10 +11,8 @@ const listItem = {
   },
 };
 const WorkList = ({ data=[], activeValue }) => {
-  if (data) {
 
-    
-  function renderWorks(){
+  const renderWorks = () => {
     let filteredWork;
     if (activeValue === 'All'){
       filteredWork = [...data]
@@ -32,6 +30,10 @@ const WorkList = ({ data=[], activeValue }) => {
         />
     ))
   }
+  if (data) {
+
+    
+  
 
 
     return (

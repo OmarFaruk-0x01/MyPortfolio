@@ -18,7 +18,9 @@ const WorkList = ({ data=[], activeValue }) => {
       filteredWork = [...data]
     }
     else{
-      filteredWork = data.filter(item => (item.cetagories.nodes.includes(activeValue)))
+      filteredWork = data.filter(item => (item.cetagories.nodes.map(n => n.name).includes(activeValue)))
+      
+      
     }
     
     return filteredWork.map((item,i) => (
